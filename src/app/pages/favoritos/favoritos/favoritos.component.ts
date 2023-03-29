@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class FavoritosComponent {
 
-  
+
   constructor(private favoritosService: FavoritosService, private router: Router) { }
 
   favoritosAutor!: string[];
@@ -39,4 +39,8 @@ export class FavoritosComponent {
     this.listarObras();
   }
 
+  verObras(author: string): void {
+    localStorage.setItem("id_Author", author);
+    this.router.navigate(['obra/listar']);
+  }
 }

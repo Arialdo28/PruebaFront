@@ -5,8 +5,6 @@
         </div>
 
         <div class="card-body">
-
-            <button (click)="crear()" class="btn btn-success" style="margin-left: 10px;">Nuevo</button>
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
@@ -24,9 +22,6 @@
                                 data-bs-target="#exampleModal">Ver</button>
                             <button class="btn btn-danger" (click)="agregarFav(obra.title)">
                                 <i class="fa fa-heart" aria-hidden="true"></i>
-                            </button>
-                            <button class="btn btn-danger" (click)="eliminarFav(obra.title)">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
                             </button>
                         </td>
                     </tr>

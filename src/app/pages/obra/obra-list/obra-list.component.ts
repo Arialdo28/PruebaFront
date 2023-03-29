@@ -25,6 +25,10 @@ export class ObraListComponent {
     this.author = localStorage.getItem("id_Author")!;
     this.obraService.getByAuthor(this.author).subscribe(datos => {
       this.obras = datos;
+      let favoritos: string[] = this.favoritosService.getObras();
+      for (var i = 0; i < favoritos.length; i++) {
+        this.obras = this.obras?.filter(u => u.title !== favoritos[i]);
+      }
     });
   }
 

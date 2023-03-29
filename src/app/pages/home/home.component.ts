@@ -22,4 +22,8 @@ export class HomeComponent {
   irFavoritos() {
     this.router.navigate(['favoritos']);
   }
+  
+  irLogin() {
+    this.router.navigate(['login']);
+  }
 }

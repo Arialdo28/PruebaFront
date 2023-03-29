@@ -21,7 +21,8 @@
                     <tr class="text-center" *ngFor="let favorito of favoritosAutor">
                         <td>{{favorito}}</td>
                         <td>
-                            <button class="btn btn-danger" (click)="eliminarFavAutor(favorito)">
+                            <button class="btn btn-warning" (click)="verObras(favorito)" style="margin-left: 5px;">Obras</button>
+                            <button class="btn btn-danger" (click)="eliminarFavAutor(favorito)" style="margin-left: 5px;">
                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                             </button>
                         </td>

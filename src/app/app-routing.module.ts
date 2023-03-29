@@ -1,3 +1,4 @@
+import { GuardianGuard } from './guardian.guard';
 import { FavoritosComponent } from './pages/favoritos/favoritos/favoritos.component';
 import { ObraListComponent } from './pages/obra/obra-list/obra-list.component';
 import { LoginComponent } from './pages/auth/login/login.component';
@@ -14,8 +15,8 @@ const routes: Routes = [
   { path: 'obra/listar', component: ObraListComponent },
   { path: 'author/crear', component: AuthorCrearComponent },
   { path: 'author/listar', component: AuthorListComponent },
-  { path: 'favoritos', component: FavoritosComponent },
-  { path: 'login/ ', component: LoginComponent },
+  { path: 'favoritos', component: FavoritosComponent, canActivate: [GuardianGuard]},
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent }
   ];
 
