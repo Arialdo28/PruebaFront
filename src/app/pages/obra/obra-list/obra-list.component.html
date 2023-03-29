@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Obras de : {{author}}</h3>
+        </div>
+
+        <div class="card-body">
+
+            <button (click)="crear()" class="btn btn-success" style="margin-left: 10px;">Nuevo</button>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Título</th>
+                        <th>Lineas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let obra of obras">
+                        <td>{{obra.title}}</td>
+                        <td>{{obra.linecount}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="ver(obra)" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Ver</button>
+                            <button class="btn btn-danger" (click)="agregarFav(obra.title)">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-danger" (click)="eliminarFav(obra.title)">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Lines de la obra: {{obra.title}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li *ngFor="let line of obra.lines">{{line}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
