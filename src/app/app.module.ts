@@ -17,6 +17,7 @@ import { ObraCrearComponent } from './pages/obra/obra-crear/obra-crear.component
 import { HomeComponent } from './pages/home/home.component';
 import { ObraService } from './servicios/obra/obra.service';
 import { FavoritosComponent } from './pages/favoritos/favoritos/favoritos.component';
+import { LoginService } from './servicios/login/login.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { FavoritosComponent } from './pages/favoritos/favoritos/favoritos.compon
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ObraService, AuthorService],
+  providers: [ObraService, AuthorService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
+import { GuardianGuard } from './../../guardian.guard';
+import { LoginService } from './../../servicios/login/login.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,11 +7,12 @@ import { Injectable } from '@angular/core';
 })
 export class FavoritosService {
 
-
-  constructor() { }
+  constructor(private guardianGuard: GuardianGuard) {
+  }
 
   getObras(): string[] {
-    let lista: string[] = JSON.parse(localStorage.getItem("obras_favoritos")!);
+    let lista: string[] = [];
+    lista = JSON.parse(localStorage.getItem("obras_favoritos")!)
     return lista == null ? [] : lista;
   }
 
@@ -19,15 +22,19 @@ export class FavoritosService {
   }
 
   guardarObra(elemento: string) {
-    let lista: string[] = this.getObras();
-    lista.push(elemento);
-    localStorage.setItem("obras_favoritos", JSON.stringify(lista));
+    if (this.guardianGuard.verificarSesion()) {
+      let lista: string[] = this.getObras();
+      lista.push(elemento);
+      localStorage.setItem("obras_favoritos", JSON.stringify(lista));
+    }
   }
 
   guardarAutor(elemento: string) {
-    let lista: string[] = this.getAutores();
-    lista.push(elemento);
-    localStorage.setItem("autores_favoritos", JSON.stringify(lista));
+    if (this.guardianGuard.verificarSesion()) {
+      let lista: string[] = this.getAutores();
+      lista.push(elemento);
+      localStorage.setItem("autores_favoritos", JSON.stringify(lista));
+    }
   }
 
   guardarObras(lista: string[]) {

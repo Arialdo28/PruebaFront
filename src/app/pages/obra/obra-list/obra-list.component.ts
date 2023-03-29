@@ -42,9 +42,11 @@ export class ObraListComponent {
 
   agregarFav(obra: string) {
     this.favoritosService.guardarObra(obra);
+    this.cargarDatos();
   }
 
   eliminarFav(obra: string): void {
     this.favoritosService.eliminarObra(obra);
+    this.cargarDatos();
   }
 }

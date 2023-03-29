@@ -22,8 +22,7 @@ export class AuthorListComponent {
   listar() {
     this.authors = JSON.parse(localStorage.getItem("authores")!);
     let favoritos: string[] = this.favoritosService.getAutores();
-    for(var i = 0; i< favoritos.length; i++)
-    {
+    for (var i = 0; i < favoritos.length; i++) {
       this.authors = this.authors?.filter(u => u !== favoritos[i]);
     }
   }
@@ -42,11 +41,13 @@ export class AuthorListComponent {
 
   agregarFav(autor: string) {
     this.favoritosService.guardarAutor(autor);
+    this.listar()
   }
 
   eliminarFav(autor: string): void {
     this.favoritosService.eliminarAutor(autor);
     this.favoritosService.getAutores();
+    this.listar()
   }
 
   eliminar(author: string): void {

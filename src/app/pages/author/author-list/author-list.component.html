@@ -18,8 +18,8 @@
                     <tr class="text-center" *ngFor="let author of authors">
                         <td>{{author}}</td>
                         <td>
-                            <button class="btn btn-warning" (click)="verObras(author)">Obras</button>
-                            <button class="btn btn-danger" (click)="agregarFav(author)">
+                            <button class="btn btn-warning" (click)="verObras(author)" style="margin-left: 5px;">Obras</button>
+                            <button class="btn btn-danger" (click)="agregarFav(author)" style="margin-left: 5px;">
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                             </button>
                         </td>
